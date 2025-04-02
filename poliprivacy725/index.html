@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaderDüello | Fighters of Fate: Card Duel Resmi Sitesi</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#068a9c',
+                        secondary: '#770f10',
+                        tertiary: '#d44a1e',
+                        accent: '#83552d',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .btn-custom {
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .card-custom {
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(6, 138, 156, 0.8) 0%, rgba(119, 15, 16, 0.7) 100%);
+        }
+
+        .btn-custom {
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white bg-opacity-95 shadow-md">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-primary p-2 animate-float">
+                        <img src="/src/icons/logo.png" alt="KaderDüello Logo" class="w-full h-full rounded-full object-contain">
+                    </div>
+                    <span class="text-2xl font-bold text-primary tracking-wider">KaderDüello</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="/#anasayfa" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ANA SAYFA</a>
+                    <a href="/#oyun-hakkinda" class="text-primary hover:text-tertiary font-medium transition-all duration-300">OYUN HAKKINDA</a>
+                    <a href="/#ozellikler" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ÖZELLİKLER</a>
+                    <a href="/#galerisi" class="text-primary hover:text-tertiary font-medium transition-all duration-300">GALERİ</a>
+                    <a href="/#topluluk" class="text-primary hover:text-tertiary font-medium transition-all duration-300">TOPLULUK</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="/#Download"> <button class="btn-custom bg-tertiary text-white py-2 px-6 font-medium transition-all hover:bg-opacity-90 transform hover:-translate-y-1">HEMEN İNDİR</button></a>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav id="mobile-menu" class="hidden md:hidden py-4 transition-all duration-300">
+                <div class="flex flex-col space-y-4">
+                    <a href="/#anasayfa" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ANA SAYFA</a>
+                    <a href="/#oyun-hakkinda" class="text-primary hover:text-tertiary font-medium transition-all duration-300">OYUN HAKKINDA</a>
+                    <a href="/#ozellikler" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ÖZELLİKLER</a>
+                    <a href="/#galerisi" class="text-primary hover:text-tertiary font-medium transition-all duration-300">GALERİ</a>
+                    <a href="/#topluluk" class="text-primary hover:text-tertiary font-medium transition-all duration-300">TOPLULUK</a>
+                    <a href="/#Download"><button class="btn-custom bg-tertiary text-white py-2 px-6 font-medium transition-all hover:bg-opacity-90 self-start">HEMEN İNDİR</button></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Privacy Policy Header Section -->
+    <section class="py-20 bg-primary bg-opacity-10 relative">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-thin text-secondary mb-6 mt-16">GİZLİLİK <span class="font-bold">POLİTİKASI</span></h1>
+                <div class="w-24 h-1 bg-tertiary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-700 mb-6">
+                    KaderDüello, https://bonanza-free.com/ adresinden erişilebilir. Ziyaretçilerimizin gizliliği en önemli önceliklerimizden biridir.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Content Section - Part 1 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Introduction -->
+                <div class="mb-12">
+                    <p class="text-lg text-gray-700 mb-6">
+                        Bu Gizlilik Politikası belgesi, KaderDüello tarafından toplanan ve kaydedilen çeşitli bilgi türlerini ve bunların nasıl kullanıldığını içermektedir.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Ek sorularınız varsa veya Gizlilik Politikamız hakkında daha fazla bilgiye ihtiyacınız olursa, bizimle iletişime geçmekten çekinmeyin.
+                    </p>
+                </div>
+
+                <!-- Log Files Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Günlük Dosyaları</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        KaderDüello, standart günlük dosyası kullanım prosedürünü takip etmektedir. Ziyaretçiler web sitesini ziyaret ettiğinde bu dosyalar kayıt altına alınır. Tüm barındırma şirketleri bu işlemi yapar ve bu, barındırma hizmetlerinin analizlerinin bir parçasıdır.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Günlük dosyaları tarafından toplanan bilgiler; internet protokolü (IP) adresleri, tarayıcı türü, İnternet Servis Sağlayıcısı (ISP), tarih ve saat damgası, yönlendiren/çıkış sayfaları ve tıklama sayısı gibi verileri içerebilir. Bu veriler, herhangi bir kişisel olarak tanımlanabilir bilgiyle bağlantılı değildir.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Bu bilgilerin amacı, eğilimleri analiz etmek, web sitesini yönetmek, kullanıcı hareketlerini takip etmek ve demografik bilgiler toplamaktır. Gizlilik Politikamız, Privacy Policy Generator yardımıyla oluşturulmuştur.
+                    </p>
+                </div>
+
+                <!-- Cookies Section -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Çerezler ve Web İşaretçileri</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Diğer web siteleri gibi KaderDüello da "çerezler" kullanmaktadır. Bu çerezler, ziyaretçilerin tercihleri ve ziyaret ettikleri sayfalar gibi bilgileri depolamak için kullanılır. Toplanan bilgiler, kullanıcı deneyimini geliştirmek için tarayıcı türüne ve diğer bilgilere dayalı olarak web sayfamızın içeriğini özelleştirmek için kullanılır.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Çerezler hakkında daha genel bilgiler için, lütfen Privacy Policy Generator tarafından sağlanan "Çerezler" makalesini okuyun.
+                    </p>
+                </div>
+                <!-- Google DoubleClick DART Cookie -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Google DoubleClick DART Çerezi</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Google, sitemizdeki üçüncü taraf satıcılardan biridir. DART çerezleri olarak bilinen çerezleri kullanarak, site ziyaretçilerimize www.website.com ve internetteki diğer sitelere yaptıkları ziyaretlere dayalı olarak reklamlar sunmaktadır. Ancak, ziyaretçiler DART çerezlerinin kullanımını reddetmek için şu URL'yi ziyaret edebilir: Google reklam ve içerik ağı Gizlilik Politikası.
+                    </p>
+                </div>
+
+                <!-- Advertising Partners -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Reklam Ortaklarımız</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Web sitemizdeki bazı reklamcılar çerezler ve web işaretçileri kullanabilir. Reklam ortaklarımız aşağıda listelenmiştir. Her reklam ortağımızın, kullanıcı verileriyle ilgili politikalarını içeren kendi Gizlilik Politikası vardır. Kolay erişim için, ilgili gizlilik politikalarına bağlantılar ekledik:
+                    </p>
+                    <div class="bg-gray-50 p-6 rounded-lg mt-4 mb-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-8 h-8 bg-primary bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fab fa-google text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800">Google</p>
+                                <a href="https://policies.google.com/technologies/ads" target="_blank" class="text-tertiary hover:underline">https://policies.google.com/technologies/ads</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Policies -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Gizlilik Politikaları</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        KaderDüello'nun reklam ortaklarının her biri için Gizlilik Politikası'na ulaşmak için bu listeyi inceleyebilirsiniz.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Üçüncü taraf reklam sunucuları veya reklam ağları, KaderDüello'da görünen reklamlar ve bağlantılar ile doğrudan tarayıcınıza gönderilen çerezler, JavaScript veya Web İşaretçileri gibi teknolojileri kullanmaktadır. Bu işlem gerçekleştiğinde IP adresinizi otomatik olarak alırlar. Bu teknolojiler, reklam kampanyalarının etkinliğini ölçmek ve ziyaret ettiğiniz web sitelerinde gördüğünüz reklam içeriğini kişiselleştirmek için kullanılır.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Unutmayın ki, KaderDüello üçüncü taraf reklamcılar tarafından kullanılan bu çerezlere erişemez veya bunları kontrol edemez.
+                    </p>
+                </div>
+
+                <!-- Third Party Privacy Policies -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Üçüncü Taraf Gizlilik Politikaları</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        KaderDüello'nun Gizlilik Politikası, diğer reklamcılar veya web siteleri için geçerli değildir. Bu nedenle, daha ayrıntılı bilgi için ilgili üçüncü taraf reklam sunucularının Gizlilik Politikaları'na başvurmanızı öneriyoruz. Bu politikalar, belirli seçeneklerden nasıl çıkılacağına ilişkin uygulamalar ve talimatlar içerebilir.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Çerezleri devre dışı bırakmak isterseniz, tarayıcı seçenekleriniz aracılığıyla bunu yapabilirsiniz. Belirli web tarayıcılarıyla çerez yönetimi hakkında daha ayrıntılı bilgiler, ilgili tarayıcıların web sitelerinde bulunabilir.
+                    </p>
+                </div>
+
+                <!-- Children's Information -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Çocukların Bilgileri</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Çocukların interneti kullanırken korunmasını sağlamak, önceliklerimizden biridir. Ebeveynleri ve vasileri, çocukların çevrimiçi etkinliklerini gözlemlemeye, katılmaya ve yönlendirmeye teşvik ediyoruz.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-4">
+                        KaderDüello, 13 yaşın altındaki çocuklardan bilerek kişisel olarak tanımlanabilir herhangi bir bilgi toplamaz. Eğer çocuğunuzun bu tür bilgileri web sitemizde paylaştığını düşünüyorsanız, lütfen bizimle hemen iletişime geçin. Bu bilgileri kayıtlarımızdan hızlı bir şekilde kaldırmak için elimizden gelen çabayı göstereceğiz.
+                    </p>
+                </div>
+
+                <!-- Online Privacy Policy Only -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Yalnızca Çevrimiçi Gizlilik Politikası</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Bu Gizlilik Politikası yalnızca çevrimiçi faaliyetlerimiz için geçerlidir ve KaderDüello'da toplanan veya paylaşılan bilgiler için geçerlidir. Bu politika, çevrimdışı veya bu web sitesi dışındaki kanallar aracılığıyla toplanan bilgiler için geçerli değildir.
+                    </p>
+                </div>
+
+                <!-- Consent -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Onay</h2>
+                    <div class="w-12 h-1 bg-tertiary mb-6"></div>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Web sitemizi kullanarak, Gizlilik Politikamızı kabul ettiğinizi ve Şartlar ve Koşullarımızı kabul ettiğinizi beyan etmiş olursunuz.
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-secondary mb-6">KaderDüello'yu Keşfetmeye Devam Edin</h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    Anime dövüş oyunlarının heyecanı ve koleksiyoncu kart oyunlarının stratejisini birleştiren benzersiz deneyimimize katılın.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="/" class="btn-custom bg-primary text-white py-3 px-6 text-lg font-medium transition-all hover:bg-opacity-90 transform hover:-translate-y-1 hover:shadow-lg">
+                        <i class="fas fa-home mr-2"></i> Ana Sayfaya Dön
+                    </a>
+                    <a href="/#Download" class="btn-custom bg-tertiary text-white py-3 px-6 text-lg font-medium transition-all hover:bg-opacity-90 transform hover:-translate-y-1 hover:shadow-lg">
+                        <i class="fas fa-download mr-2"></i> Oyunu İndir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <a href="/" class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary p-1">
+                            <img src="/src/icons/logo.png" alt="KaderDüello Logo" class="w-full h-full rounded-full object-contain">
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-wider">KaderDüello</span>
+                    </a>
+                    <p class="text-gray-400 text-sm">
+                        Kader Savaşçıları: Kart Düellosu, koleksiyoncu kart oyunları ve anime dövüş oyunlarını bir araya getiren benzersiz bir mobil oyun deneyimi sunar.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Hızlı Bağlantılar</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/#anasayfa" class="text-gray-400 hover:text-white transition-all">Ana Sayfa</a></li>
+                        <li><a href="/#oyun-hakkinda" class="text-gray-400 hover:text-white transition-all">Oyun Hakkında</a></li>
+                        <li><a href="/#ozellikler" class="text-gray-400 hover:text-white transition-all">Özellikler</a></li>
+                        <li><a href="/#galerisi" class="text-gray-400 hover:text-white transition-all">Galeri</a></li>
+                        <li><a href="/#topluluk" class="text-gray-400 hover:text-white transition-all">Topluluk</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Topluluk</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://discord.gg/HEyEP74" target="_blank" class="text-gray-400 hover:text-white transition-all">Discord</a></li>
+                        <li><a href="https://www.instagram.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">Facebook</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Yasal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/poliprivacy725/" class="text-gray-400 hover:text-white transition-all">Gizlilik Politikası</a></li>
+                        <li><a href="/service2465/" class="text-gray-400 hover:text-white transition-all">Kullanım Koşulları</a></li>
+                        <li><a href="/cookiess367/" class="text-gray-400 hover:text-white transition-all">Çerez Politikası</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 KaderDüello - Fighters of Fate: Card Duel. Tüm hakları saklıdır.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://discord.gg/HEyEP74" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-discord text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                    </a>
+                    <a href="http://www.twitter.com/pincergames" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Scroll Animation for Header
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-1', 'shadow-lg');
+                header.classList.remove('py-2');
+            } else {
+                header.classList.add('py-2');
+                header.classList.remove('py-1', 'shadow-lg');
+            }
+        });
+
+        // FAQ Toggles
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+
+                // Toggle content
+                content.classList.toggle('hidden');
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+<?php
+$cookieConsentHtml = '
+<style>
+.cookie-consent {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    background: #068a9c;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    width: 360px;
+    max-width: 90vw;
+    transform: translateX(120%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: "Poppins", sans-serif;
+    border-left: 5px solid #d44a1e; 
+    border-radius: 8px 0 0 8px;
+}
+
+.cookie-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cookie-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cookie-title {
+    font-size: 1.2rem;
+    color: white; 
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cookie-title i {
+    color: #d44a1e; 
+    font-size: 1.5rem;
+}
+
+.cookie-text {
+    color: white; 
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.cookie-link {
+    color: #d44a1e; 
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cookie-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #d44a1e; 
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cookie-link:hover::after {
+    transform: scaleX(1);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-button-reject,
+.cookie-button-accept {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    flex: 1;
+    border-radius: 0;
+}
+
+.cookie-button-reject {
+    background: transparent;
+    color: white; 
+    border: 2px solid #83552d;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.cookie-button-reject:hover {
+    background: #83552d;
+    transform: translateY(-2px);
+    border-color: #83552d;
+}
+
+.cookie-button-accept {
+    background: #d44a1e; 
+    color: white; 
+    border: 2px solid #d44a1e; 
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.cookie-button-accept:hover {
+    background: #770f10; 
+    border-color: #770f10; 
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cookie-consent {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-left: none;
+        border-top: 5px solid #d44a1e;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .cookie-buttons {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+</style>
+<div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-container">
+        <div class="cookie-content">
+            <h3 class="cookie-title">
+                <i class="fas fa-cookie-bite"></i>
+                Çerez Politikası
+            </h3>
+            <p class="cookie-text">
+                KaderDüello oyun deneyiminizi geliştirmek için çerezler kullanıyoruz. Web sitemizi kullanmaya devam ederek çerezlerin kullanımını kabul etmiş olursunuz. Daha fazla bilgi için
+                <a href="/poliprivacy725/" class="cookie-link">Gizlilik Politikamızı</a>,
+                <a href="/service2465/" class="cookie-link">Hizmet Şartlarımızı</a>
+                ve
+                <a href="/cookiess367/" class="cookie-link">Çerez Politikamızı</a>
+                okuyabilirsiniz.
+            </p>
+        </div>
+        
+        <div class="cookie-buttons">
+            <button id="rejectCookies" class="cookie-button-reject">
+                Reddet
+            </button>
+            <button id="acceptCookies" class="cookie-button-accept">
+                Kabul Et
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   const cookieConsent = document.getElementById("cookieConsent");
+   const acceptBtn = document.getElementById("acceptCookies");
+   const rejectBtn = document.getElementById("rejectCookies");
+   
+   if (!getCookie("aprenderd_cookie_consent")) {
+       setTimeout(() => {
+           cookieConsent.style.transform = "translateX(0)";
+       }, 1000);
+   }
+
+   function getCookie(name) {
+       let matches = document.cookie.match(new RegExp(
+           "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"
+       ));
+       return matches ? decodeURIComponent(matches[1]) : undefined;
+   }
+   
+   function setCookie(name, value, days) {
+       const date = new Date();
+       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+       const expires = "; expires=" + date.toUTCString();
+       document.cookie = name + "=" + value + expires + "; path=/; SameSite=Strict; Secure";
+   }
+
+   function handleConsent(consent) {
+       setCookie("aprenderd_cookie_consent", consent, 365);
+       cookieConsent.style.transform = "translateX(120%)";
+       
+       setTimeout(() => {
+           cookieConsent.remove();
+       }, 500);
+   }
+
+   acceptBtn.addEventListener("click", () => handleConsent("accepted"));
+   rejectBtn.addEventListener("click", () => handleConsent("rejected"));
+});
+</script>
+';
+
+if (!isset($_COOKIE["aprenderd_cookie_consent"])) {
+    echo $cookieConsentHtml;
+}
+?>

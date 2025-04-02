@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaderDüello | Fighters of Fate: Card Duel Resmi Sitesi</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='icon' href='/src/icons/logo.png' type='image/x-icon'>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#068a9c',
+                        secondary: '#770f10',
+                        tertiary: '#d44a1e',
+                        accent: '#83552d',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .btn-custom {
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .card-custom {
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(6, 138, 156, 0.8) 0%, rgba(119, 15, 16, 0.7) 100%);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white bg-opacity-95 shadow-md">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-primary p-2 animate-float">
+                        <img src="/src/icons/logo.png" alt="KaderDüello Logo" class="w-full h-full rounded-full object-contain">
+                    </div>
+                    <span class="text-2xl font-bold text-primary tracking-wider">KaderDüello</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#anasayfa" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ANA SAYFA</a>
+                    <a href="#oyun-hakkinda" class="text-primary hover:text-tertiary font-medium transition-all duration-300">OYUN HAKKINDA</a>
+                    <a href="#ozellikler" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ÖZELLİKLER</a>
+                    <a href="#galerisi" class="text-primary hover:text-tertiary font-medium transition-all duration-300">GALERİ</a>
+                    <a href="#topluluk" class="text-primary hover:text-tertiary font-medium transition-all duration-300">TOPLULUK</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="#Download"> <button class="btn-custom bg-tertiary text-white py-2 px-6 font-medium transition-all hover:bg-opacity-90 transform hover:-translate-y-1">HEMEN İNDİR</button></a>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav id="mobile-menu" class="hidden md:hidden py-4 transition-all duration-300">
+                <div class="flex flex-col space-y-4">
+                    <a href="#anasayfa" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ANA SAYFA</a>
+                    <a href="#oyun-hakkinda" class="text-primary hover:text-tertiary font-medium transition-all duration-300">OYUN HAKKINDA</a>
+                    <a href="#ozellikler" class="text-primary hover:text-tertiary font-medium transition-all duration-300">ÖZELLİKLER</a>
+                    <a href="#galerisi" class="text-primary hover:text-tertiary font-medium transition-all duration-300">GALERİ</a>
+                    <a href="#topluluk" class="text-primary hover:text-tertiary font-medium transition-all duration-300">TOPLULUK</a>
+                    <a href="#Download"><button class="btn-custom bg-tertiary text-white py-2 px-6 font-medium transition-all hover:bg-opacity-90 self-start">HEMEN İNDİR</button></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="anasayfa" class="relative min-h-screen pt-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 z-0"></div>
+        <div class="absolute inset-0 z-10">
+            <img src="/src/img/mainBg.png" alt="Fighters of Fate Arka Plan" class="w-full h-full object-cover opacity-30">
+        </div>
+
+        <div class="container mx-auto px-4 pt-16 pb-20 relative z-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[80vh]">
+                <div class="text-white space-y-6">
+                    <h1 class="text-5xl md:text-7xl font-thin leading-tight">
+                        <span class="font-bold text-white drop-shadow-lg">Kader</span> Savaşçıları:
+                        <span class="text-white font-bold italic drop-shadow-lg">Kart Düellosu</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl font-light leading-relaxed">
+                        Kendi kaderini yaz, kart desteni oluştur ve anime tarzı dövüş dünyasında üstünlüğünü kanıtla!
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="https://play.google.com/store/apps/details?id=com.Pincer.FofAlpha&pcampaignid=web_share" target="_blank"><button class="btn-custom bg-tertiary text-white py-3 px-8 text-lg font-medium transition-all hover:bg-opacity-90 transform hover:-translate-y-1 hover:shadow-lg">
+                                <i class="fas fa-download mr-2"></i> HEMEN İNDİR
+                            </button></a>
+                        <a href="https://youtu.be/b85ofPdW_Qc" target="_blank"> <button class="btn-custom bg-white text-primary py-3 px-8 text-lg font-medium transition-all hover:bg-primary hover:text-white transform hover:-translate-y-1 hover:shadow-lg">
+                                <i class="fas fa-play mr-2"></i> FRAGMANI İZLE
+                            </button></a>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block">
+                    <div class="absolute -right-20 top-1/2 transform -translate-y-1/2 animate-float">
+                        <img src="/src/img/bigger_main.png" alt="Fighters of Fate Karakter" class="h-[650px] object-contain">
+                    </div>
+                    <div class="absolute -left-10 top-1/3 transform -translate-y-1/3 animate-pulse-slow">
+                        <img src="/src/img/smaller_main.png" alt="Arkana Kartı" class="h-[350px] object-contain rotate-[-15deg]">
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#oyun-hakkinda" class="text-white">
+                    <i class="fas fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Introduction Section -->
+    <section id="oyun-hakkinda" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-thin text-secondary mb-4">OYUN <span class="font-bold">HAKKINDA</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-3xl font-thin text-primary mb-6">Kendi <span class="font-bold">Kaderini</span> Yarat</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        <span class="font-semibold">Fighters of Fate: Card Duel</span>, koleksiyoncu kart oyunları, rol yapma ve dövüş oyunlarını bir araya getiren eşsiz bir deneyim sunuyor. Arkana kartlarının gücünü kullanarak kaderinizi yeniden yazabilir, kendi benzersiz karakterinizi oluşturabilir ve anime tarzı dövüş dünyasında yerinizi alabilirsiniz.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Savaş destenizdeki kartlar, istatistiklerinizi, silahlarınızı, becerilerinizi ve güçlerinizi belirler. Stil Destenizdeki kartlar ise görünümünüzü özelleştirir, hayalinizdeki anime savaşçısını yaratmanıza olanak tanır.
+                    </p>
+                    <div class="flex items-center space-x-4 mt-8">
+                        <span class="px-4 py-2 bg-primary text-white rounded-full text-sm">#AnimeKartOyunu</span>
+                        <span class="px-4 py-2 bg-secondary text-white rounded-full text-sm">#KaderiDeğiştir</span>
+                        <span class="px-4 py-2 bg-tertiary text-white rounded-full text-sm">#DövüşOyunu</span>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="relative">
+                        <div class="absolute -top-5 -left-5 w-full h-full bg-primary rounded-lg"></div>
+                        <div class="absolute -bottom-5 -right-5 w-full h-full bg-tertiary rounded-lg"></div>
+                        <img src="/src/img/about.png" alt="Oyun Tanıtım Görseli" class="w-full rounded-lg relative z-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="ozellikler" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary opacity-10 rounded-full transform translate-x-32 -translate-y-32"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-tertiary opacity-10 rounded-full transform -translate-x-48 translate-y-48"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-thin text-secondary mb-4">ÖNE ÇIKAN <span class="font-bold">ÖZELLİKLER</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-8 max-w-3xl mx-auto">
+                    Anime dövüş oyunlarının heyecanı ve koleksiyoncu kart oyunlarının stratejisini birleştiren özellikleri keşfedin.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card-custom bg-white p-8 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-magic text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Arkana Kartları</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Tarot'ya benzeyen güçlü Arkana kartlarıyla kaderinizi yeniden yazın ve rakiplerinize karşı benzersiz stratejiler geliştirin.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card-custom bg-white p-8 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-tertiary bg-opacity-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-user-edit text-2xl text-tertiary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Karakter Özelleştirme</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Savaş ve stil destelerinizle kendi benzersiz anime karakterinizi yaratın, istatistiklerden görünüme kadar her şeyi kontrol edin.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card-custom bg-white p-8 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-fist-raised text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Anime Dövüş Sistemi</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        RPG, anime dövüş oyunları ve CCG'den ilham alan çılgın dövüşlerde kartlarınızla kombolar oluşturarak rakiplerinizi alt edin.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="card-custom bg-white p-8 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-trophy text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Rekabetçi Mod</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        En güçlü Kader Savaşçısı olun! Şan için mücadele edin, sıralamalarda yükselin ve yeni kartları ödül olarak toplayın.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="card-custom bg-white p-8 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-flask text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Simya Modu</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Simya kullanarak kartlarınızın seviyesini yükseltin ve en güçlü desteleri oluşturarak eşsiz CCG-dövüş oyunu karışımının keyfini çıkarın.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="card-custom bg-white p-8 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2 duration-300">
+                    <div class="w-16 h-16 bg-tertiary bg-opacity-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-2xl text-tertiary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Canlı PvP Arena</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Dövüş barında diğer anime kader savaşçılarına katılın, arkadaş edinin ve gerçek zamanlı PVP'de anime dövüş oyunu tarzında rekabet edin.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="#Download"><button class="btn-custom bg-tertiary text-white py-3 px-8 text-lg font-medium transition-all hover:bg-opacity-90 transform hover:-translate-y-1 hover:shadow-lg">
+                        TÜM ÖZELLİKLERİ KEŞFEDİN
+                    </button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galerisi" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-thin text-secondary mb-4">OYUN <span class="font-bold">GALERİSİ</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-8 max-w-3xl mx-auto">
+                    Fighters of Fate: Card Duel'in etkileyici grafikleri ve anime tarzı sanatını keşfedin.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="/src/img/gallery1.png" alt="Oyun Görseli 1" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end">
+                        <div class="p-4">
+                            <h3 class="text-white text-xl font-bold">Arkana Kartları</h3>
+                            <p class="text-gray-200 text-sm">Güçlü Arkana kartları ile kaderinizi değiştirin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="/src/img/gallery2.png" alt="Oyun Görseli 2" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end">
+                        <div class="p-4">
+                            <h3 class="text-white text-xl font-bold">Karakter Özelleştirme</h3>
+                            <p class="text-gray-200 text-sm">Kendi benzersiz anime karakterinizi yaratın</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="/src/img/gallery3.png" alt="Oyun Görseli 3" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end">
+                        <div class="p-4">
+                            <h3 class="text-white text-xl font-bold">PvP Dövüşleri</h3>
+                            <p class="text-gray-200 text-sm">Heyecan verici anime tarzı dövüş sahneleri</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="/src/img/gallery4.png" alt="Oyun Görseli 4" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end">
+                        <div class="p-4">
+                            <h3 class="text-white text-xl font-bold">Simya Sistemi</h3>
+                            <p class="text-gray-200 text-sm">Kartlarınızı geliştirin ve güçlendirin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="/src/img/gallery5.png" alt="Oyun Görseli 5" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end">
+                        <div class="p-4">
+                            <h3 class="text-white text-xl font-bold">Macera Modu</h3>
+                            <p class="text-gray-200 text-sm">Kartlar ve materyaller toplayın</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="/src/img/gallery6.png" alt="Oyun Görseli 6" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end">
+                        <div class="p-4">
+                            <h3 class="text-white text-xl font-bold">Canlı Arena</h3>
+                            <p class="text-gray-200 text-sm">Diğer oyuncularla sosyalleşin ve dövüşün</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#Download"> <button class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 py-3 px-8 rounded-full">
+                        <i class="fab fa-youtube mr-2"></i> OYUN VİDEOLARINI İZLE
+                    </button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="topluluk" class="py-20 bg-gray-50 relative">
+        <div class="absolute inset-0 bg-primary opacity-5 pattern-diagonal-lines"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-thin text-secondary mb-4">KADER <span class="font-bold">TOPLULUĞU</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-8 max-w-3xl mx-auto">
+                    Dünya çapındaki diğer Kader Savaşçıları ile bağlantı kurun, stratejilerinizi geliştirin ve birlikte büyüyün.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 transform transition-all hover:-translate-y-2 hover:shadow-xl duration-300">
+                    <div class="w-20 h-20 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fab fa-discord text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center text-secondary mb-4">Discord</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Aktif Discord topluluğumuza katılın, etkinliklere katılın ve diğer oyuncularla tanışın.
+                    </p>
+                    <div class="text-center">
+                        <a href="https://discord.gg/HEyEP74" target="_blank" class="inline-block bg-primary text-white py-2 px-6 rounded-full hover:bg-opacity-90 transition-all">
+                            KATIL
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 transform transition-all hover:-translate-y-2 hover:shadow-xl duration-300">
+                    <div class="w-20 h-20 bg-tertiary bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fab fa-instagram text-3xl text-tertiary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center text-secondary mb-4">Instagram</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        En yeni görseller, güncellemeler ve etkinlikler için Instagram'da bizi takip edin.
+                    </p>
+                    <div class="text-center">
+                        <a href="https://www.instagram.com/fightersoffate" target="_blank" class="inline-block bg-tertiary text-white py-2 px-6 rounded-full hover:bg-opacity-90 transition-all">
+                            TAKİP ET
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 transform transition-all hover:-translate-y-2 hover:shadow-xl duration-300">
+                    <div class="w-20 h-20 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fab fa-facebook-f text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center text-secondary mb-4">Facebook</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Oyun haberleri, ipuçları ve topluluk etkinlikleri için Facebook sayfamızı takip edin.
+                    </p>
+                    <div class="text-center">
+                        <a href="https://www.facebook.com/fightersoffate" target="_blank" class="inline-block bg-secondary text-white py-2 px-6 rounded-full hover:bg-opacity-90 transition-all">
+                            BEĞEN
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="Download" class="py-16 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="/src/img/download.png" alt="Fighters of Fate Arka Plan" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-60 z-1"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center text-white">
+                <h2 class="text-4xl md:text-6xl font-thin mb-6">HEMEN <span class="font-bold">İNDİR</span></h2>
+                <p class="text-xl md:text-2xl font-light mb-10 max-w-3xl mx-auto">
+                    Kader Savaşçıları: Kart Düellosu'nu şimdi indirin ve kendi kaderinizi yazmaya başlayın!
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="https://play.google.com/store/apps/details?id=com.Pincer.FofAlpha&pcampaignid=web_share" target="_blank" class="transform transition-all hover:-translate-y-2 hover:shadow-lg duration-300">
+                        <img src="/src/icons/play.png" alt="Google Play" class="h-16">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/fighters-of-fate-card-duel/id1636337504" target="_blank" class="transform transition-all hover:-translate-y-2 hover:shadow-lg duration-300">
+                        <img src="/src/icons/AppStore.png" alt="App Store" class="h-16">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-thin text-secondary mb-4">SIK SORULAN <span class="font-bold">SORULAR</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 bg-gray-50 text-left focus:outline-none">
+                            <span class="text-lg font-medium text-secondary">Fighters of Fate: Card Duel nasıl oynanır?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4">
+                            <p class="text-gray-600">
+                                Fighters of Fate: Card Duel, kart toplama, karakter özelleştirme ve anime tarzı dövüşleri birleştiren bir oyundur. Oyunda, önce kendi karakterinizi oluşturur, sonra Arkana kartlarını kullanarak rakiplerinizle savaşırsınız. Kartlarınızı stratejik olarak kullanarak kombolar oluşturabilir ve rakiplerinizi alt edebilirsiniz.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 bg-gray-50 text-left focus:outline-none">
+                            <span class="text-lg font-medium text-secondary">Oyun ücretsiz mi?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4">
+                            <p class="text-gray-600">
+                                Evet, Fighters of Fate: Card Duel ücretsiz olarak oynanabilir. Oyun içinde oyun deneyiminizi geliştirebilecek isteğe bağlı satın alımlar bulunmaktadır, ancak bu satın alımlar olmadan da tam oyun deneyimini yaşayabilirsiniz.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 bg-gray-50 text-left focus:outline-none">
+                            <span class="text-lg font-medium text-secondary">Arkana kartları nedir?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4">
+                            <p class="text-gray-600">
+                                Arkana kartları, Tarot kartlarından ilham alan güçlü kartlardır. Bu kartlar, oyundaki kaderinizi değiştirmenize ve benzersiz yetenekler kullanmanıza olanak tanır. Her Arkana kartı farklı bir güce sahiptir ve bu kartları stratejik olarak kullanmak, oyunda başarılı olmanın anahtarıdır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 bg-gray-50 text-left focus:outline-none">
+                            <span class="text-lg font-medium text-secondary">PvP modunda nasıl rekabet edebilirim?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4">
+                            <p class="text-gray-600">
+                                PvP moduna katılmak için önce temel oyun mekaniklerini öğrenmeniz ve güçlü bir kart destesi oluşturmanız gerekir. Canlı PvP Arena'ya girerek diğer oyuncularla rekabet edebilir, sıralamalarda yükselebilir ve özel ödüller kazanabilirsiniz. Stratejinizi sürekli geliştirmek ve yeni kartlar toplamak, PvP'de başarılı olmanıza yardımcı olacaktır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 bg-gray-50 text-left focus:outline-none">
+                            <span class="text-lg font-medium text-secondary">Oyun hangi cihazlarda oynanabilir?</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 py-4">
+                            <p class="text-gray-600">
+                                Fighters of Fate: Card Duel, iOS ve Android mobil cihazlarda oynanabilir. Oyun, çeşitli cihaz modellerine uygun olarak optimize edilmiştir, ancak en iyi deneyim için güncel bir işletim sistemine sahip orta veya üst segment bir cihaz kullanmanızı öneririz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <a href="/" class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary p-1">
+                            <img src="/src/icons/logo.png" alt="KaderDüello Logo" class="w-full h-full rounded-full object-contain">
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-wider">KaderDüello</span>
+                    </a>
+                    <p class="text-gray-400 text-sm">
+                        Kader Savaşçıları: Kart Düellosu, koleksiyoncu kart oyunları ve anime dövüş oyunlarını bir araya getiren benzersiz bir mobil oyun deneyimi sunar.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Hızlı Bağlantılar</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#anasayfa" class="text-gray-400 hover:text-white transition-all">Ana Sayfa</a></li>
+                        <li><a href="#oyun-hakkinda" class="text-gray-400 hover:text-white transition-all">Oyun Hakkında</a></li>
+                        <li><a href="#ozellikler" class="text-gray-400 hover:text-white transition-all">Özellikler</a></li>
+                        <li><a href="#galerisi" class="text-gray-400 hover:text-white transition-all">Galeri</a></li>
+                        <li><a href="#topluluk" class="text-gray-400 hover:text-white transition-all">Topluluk</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Topluluk</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://discord.gg/HEyEP74" target="_blank" class="text-gray-400 hover:text-white transition-all">Discord</a></li>
+                        <li><a href="https://www.instagram.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">Facebook</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Yasal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/poliprivacy725/" class="text-gray-400 hover:text-white transition-all">Gizlilik Politikası</a></li>
+                        <li><a href="/service2465/" class="text-gray-400 hover:text-white transition-all">Kullanım Koşulları</a></li>
+                        <li><a href="/cookiess367/" class="text-gray-400 hover:text-white transition-all">Çerez Politikası</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 KaderDüello - Fighters of Fate: Card Duel. Tüm hakları saklıdır.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://discord.gg/HEyEP74" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-discord text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/fightersoffate" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                    </a>
+                    <a href="http://www.twitter.com/pincergames" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Scroll Animation for Header
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-1', 'shadow-lg');
+                header.classList.remove('py-2');
+            } else {
+                header.classList.add('py-2');
+                header.classList.remove('py-1', 'shadow-lg');
+            }
+        });
+
+        // FAQ Toggles
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+
+                // Toggle content
+                content.classList.toggle('hidden');
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+<?php
+$cookieConsentHtml = '
+<style>
+.cookie-consent {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    background: #068a9c;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    width: 360px;
+    max-width: 90vw;
+    transform: translateX(120%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: "Poppins", sans-serif;
+    border-left: 5px solid #d44a1e; 
+    border-radius: 8px 0 0 8px;
+}
+
+.cookie-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cookie-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cookie-title {
+    font-size: 1.2rem;
+    color: white; 
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cookie-title i {
+    color: #d44a1e; 
+    font-size: 1.5rem;
+}
+
+.cookie-text {
+    color: white; 
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.cookie-link {
+    color: #d44a1e; 
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cookie-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #d44a1e; 
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cookie-link:hover::after {
+    transform: scaleX(1);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-button-reject,
+.cookie-button-accept {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    flex: 1;
+    border-radius: 0;
+}
+
+.cookie-button-reject {
+    background: transparent;
+    color: white; 
+    border: 2px solid #83552d;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.cookie-button-reject:hover {
+    background: #83552d;
+    transform: translateY(-2px);
+    border-color: #83552d;
+}
+
+.cookie-button-accept {
+    background: #d44a1e; 
+    color: white; 
+    border: 2px solid #d44a1e; 
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.cookie-button-accept:hover {
+    background: #770f10; 
+    border-color: #770f10; 
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .cookie-consent {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-left: none;
+        border-top: 5px solid #d44a1e;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .cookie-buttons {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+</style>
+<div id="cookieConsent" class="cookie-consent">
+    <div class="cookie-container">
+        <div class="cookie-content">
+            <h3 class="cookie-title">
+                <i class="fas fa-cookie-bite"></i>
+                Çerez Politikası
+            </h3>
+            <p class="cookie-text">
+                KaderDüello oyun deneyiminizi geliştirmek için çerezler kullanıyoruz. Web sitemizi kullanmaya devam ederek çerezlerin kullanımını kabul etmiş olursunuz. Daha fazla bilgi için
+                <a href="/poliprivacy725/" class="cookie-link">Gizlilik Politikamızı</a>,
+                <a href="/service2465/" class="cookie-link">Hizmet Şartlarımızı</a>
+                ve
+                <a href="/cookiess367/" class="cookie-link">Çerez Politikamızı</a>
+                okuyabilirsiniz.
+            </p>
+        </div>
+        
+        <div class="cookie-buttons">
+            <button id="rejectCookies" class="cookie-button-reject">
+                Reddet
+            </button>
+            <button id="acceptCookies" class="cookie-button-accept">
+                Kabul Et
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   const cookieConsent = document.getElementById("cookieConsent");
+   const acceptBtn = document.getElementById("acceptCookies");
+   const rejectBtn = document.getElementById("rejectCookies");
+   
+   if (!getCookie("aprenderd_cookie_consent")) {
+       setTimeout(() => {
+           cookieConsent.style.transform = "translateX(0)";
+       }, 1000);
+   }
+
+   function getCookie(name) {
+       let matches = document.cookie.match(new RegExp(
+           "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"
+       ));
+       return matches ? decodeURIComponent(matches[1]) : undefined;
+   }
+   
+   function setCookie(name, value, days) {
+       const date = new Date();
+       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+       const expires = "; expires=" + date.toUTCString();
+       document.cookie = name + "=" + value + expires + "; path=/; SameSite=Strict; Secure";
+   }
+
+   function handleConsent(consent) {
+       setCookie("aprenderd_cookie_consent", consent, 365);
+       cookieConsent.style.transform = "translateX(120%)";
+       
+       setTimeout(() => {
+           cookieConsent.remove();
+       }, 500);
+   }
+
+   acceptBtn.addEventListener("click", () => handleConsent("accepted"));
+   rejectBtn.addEventListener("click", () => handleConsent("rejected"));
+});
+</script>
+';
+
+if (!isset($_COOKIE["aprenderd_cookie_consent"])) {
+    echo $cookieConsentHtml;
+}
+?>
